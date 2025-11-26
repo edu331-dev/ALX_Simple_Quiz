@@ -1,0 +1,25 @@
+function checkAnswer() {
+    // Identify the correct answer
+    let correctAnswer = "4";
+
+    // Retrieve the user's selected answer
+    let selectedOption = document.querySelector('input[name="quiz"]:checked');
+
+    // Prevent errors if no answer is selected
+    if (!selectedOption) {
+        document.getElementById('feedback').textContent = "Please select an answer before submitting.";
+        return;
+    }
+
+    let userAnswer = selectedOption.value;
+
+    // Compare the user's answer with the correct answer
+    if (userAnswer === correctAnswer) {
+        document.getElementById('feedback').textContent = "Correct! Well done.";
+    } else {
+        document.getElementById('feedback').textContent = "That's incorrect. Try again!";
+    }
+}
+
+// Add event listener to the submit button
+document.getElementById('submit-answer').addEventListener('click', checkAnswer);
